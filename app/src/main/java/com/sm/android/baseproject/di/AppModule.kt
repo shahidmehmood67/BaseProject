@@ -5,6 +5,9 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
+import androidx.room.Room
+import com.sm.android.baseproject.db.AppDatabase
+import com.sm.android.baseproject.db.UserDao
 import com.sm.android.baseproject.repository.MainRepository
 import com.sm.android.baseproject.repository.MainRepositoryImpl
 import dagger.Module
@@ -24,6 +27,20 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRepository(dataStore: DataStore<Preferences>) : MainRepository = MainRepositoryImpl(dataStore)
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
+        Room.databaseBuilder(context, AppDatabase::class.java, "ds_app_db").build()
+
+    @Provides
+    fun provideUserDao(db: AppDatabase): UserDao = db.userDao()
+
+    @Provides
+    @Singleton
+    fun provideRepository(dataStore: DataStore<Preferences>, userDao: UserDao) : MainRepository = MainRepositoryImpl(dataStore, userDao)
 
 }
+
+
+
+
+
+
