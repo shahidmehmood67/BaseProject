@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    tools:context=".ui.activities.LanguageActivity">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivbackBtn"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:text="@string/select_languages"
+        app:layout_constraintBottom_toBottomOf="@+id/ivbackBtn"
+        app:layout_constraintStart_toEndOf="@+id/ivbackBtn"
+        app:layout_constraintTop_toTopOf="@+id/ivbackBtn"
+        />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivTick"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:padding="@dimen/_3sdp"
+        android:src="@drawable/baseline_check_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivbackBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
