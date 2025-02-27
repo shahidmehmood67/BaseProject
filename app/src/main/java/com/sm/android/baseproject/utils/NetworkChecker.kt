@@ -15,7 +15,10 @@ class NetworkChecker {
             val capabilities = connectivityManager.getNetworkCapabilities(network)
             capabilities != null && (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
                     capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET))
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) ||
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN)      ||
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_BLUETOOTH)
+                    )
         } else {
             // For API level below 23
             val networkInfo = connectivityManager.activeNetworkInfo
